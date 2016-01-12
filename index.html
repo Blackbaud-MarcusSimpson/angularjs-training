@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="redditApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <div ng-controller="StoryController as story">
+      <h1>{{ title }}</h1>
+      <div class="story-list">
+        <ul>
+          <li ng-repeat="article in story.stories">
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <div class="new-story">
+        <form>
+          Title:
+          <input type="text" ng-model="newTitle">
+          URL:
+          <input type="text" ng-model="newUrl">
+          <button ng-click="story.addStory(newTitle, newUrl)">Add Story</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div ng-controller="CommentController as comment">
+      <div class="comment-list">
+        <ul>
+          <li ng-repeat="info in comment.comments">
+            {{ info.comment }} ({{ info.storyId }})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+
