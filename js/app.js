@@ -36,10 +36,19 @@ angular.module('redditApp', [])
       return comments;
     }
 
+    function addComment(newComment, storyId) {
+      comments.push(new comment(newComment, storyId));
+    }
+
     return {
-      getComments: getComments
+      getComments: getComments,
+      addComment: addComment
     };
   }])
-  .controller('CommentController', ['$scope', 'commentsFactory', function($scope, commentsFactory) {
+  .controller('CommentController', ['$scope', 'commentsFactory', 'storiesFactory', function($scope, commentsFactory, storiesFactory) {
     this.comments = commentsFactory.getComments();
+    this.addComment = function(newComment, storyId) {
+      commentsFactory.addComment(newComment, storyId);
+    };
+    this.stories = storiesFactory.getStories();
   }]);

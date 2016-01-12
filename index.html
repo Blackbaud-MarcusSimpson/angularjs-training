@@ -35,6 +35,18 @@
           </li>
         </ul>
       </div>
+      <br>
+      <div class="new-comment">
+        <form class="comment-form">
+          Comment:
+          <input type="text" ng-model="newComment">
+          Story:
+          <select name="storyComment" ng-model="storyId">
+            <option ng-repeat="story in comment.stories" value="{{ story.id }}">{{ story.title }}</option>
+          </select>
+          <button ng-click="comment.addComment(newComment, storyId)">Add Comment</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
