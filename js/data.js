@@ -1,6 +1,7 @@
 function story(title, url) {
   this.title = title;
   this.url = url;
+  this.numComments = 0;
   this.id = guid();
   this.timestamp = new Date();
 }

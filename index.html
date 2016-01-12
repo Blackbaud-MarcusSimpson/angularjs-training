@@ -11,7 +11,7 @@
       <div class="story-list">
         <ul>
           <li ng-repeat="article in story.stories">
-            <a href="{{ article.url }}">{{ article.title }}</a>
+            <a href="{{ article.url }}">{{ article.title }} ({{ article.numComments | number }})</a>
           </li>
         </ul>
       </div>

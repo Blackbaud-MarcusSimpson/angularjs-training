@@ -13,9 +13,17 @@ angular.module('redditApp', [])
       stories.push(new story(newTitle, newUrl));
     }
 
+    function incrementCommentCount(storyId) {
+      for (i=0; i<stories.length; i++) {
+        if (stories[i].id == storyId)
+          stories[i].numComments++;
+      }
+    }
+
     return {
       getStories: getStories,
-      addStory: addStory
+      addStory: addStory,
+      incrementCommentCount: incrementCommentCount
     };
   }])
   .controller('StoryController', ['$scope', 'storiesFactory', function($scope, storiesFactory) {
@@ -23,6 +31,9 @@ angular.module('redditApp', [])
     this.stories = storiesFactory.getStories();
     this.addStory = function(newTitle, newUrl) {
       storiesFactory.addStory(newTitle, newUrl);
+    };
+    this.incrementCommentCount = function(storyId){
+      storiesFactory.incrementCommentCount(storyId);
     };
   }])
 
@@ -49,6 +60,7 @@ angular.module('redditApp', [])
     this.comments = commentsFactory.getComments();
     this.addComment = function(newComment, storyId) {
       commentsFactory.addComment(newComment, storyId);
+      storiesFactory.incrementCommentCount(storyId);
     };
     this.stories = storiesFactory.getStories();
   }]);
