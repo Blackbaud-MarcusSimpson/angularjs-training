@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html charset="utf-8" ng-app="skytutorial">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My First SKY UX App</title>
+        <link rel="stylesheet" type="text/css" href="https://sky.blackbaudcdn.net/skyux/1.5.1/css/sky-bundle.css">
+    </head>
+    <body>
+        <bb-navbar>
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="bb-navbar-active"><a href="">Selected Item</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" role="button">Child Items <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="">Child Item 1</a>
+                            </li>
+                            <li>
+                                <a href="">Child Item 2</a>
+                            </li>
+                            <li>
+                                <a href="">Child Item 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Right Item</a></li>
+                </ul>
+            </div>
+        </bb-navbar>
+        <div class="container-fluid bb-page-content">
+            <button type="button" class="btn btn-primary">Hello World</button>
+        </div>
+        <script src="https://sky.blackbaudcdn.net/skyux/1.5.1/js/sky-bundle.min.js"></script>
+        <script src="index.js"></script>
+        <div class="bb-page-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-lg-2">
+                        <img src="/training/ux-apps/assets/img/hernandez.jpg" class="center-block img-circle" />
+                    </div>
+                    <div class="col-md-9 col-lg-10">
+                        <h1>Robert Hernandez</h1>
+                        <h4>CEO, Barkbaud, Inc.</h4>
+                        <p class="bb-text-block">
+                            Robert Hernandez is an important member of our organization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row bb-page-content-multicolumn">
+                <div class="col-md-6 bb-page-content-tile-column">
+                    <bb-tile bb-tile-header="'Personal information'">
+                        <div bb-tile-section>
+                            <h4>Address</h4>
+                            410 17th Street
+                            <br>
+                            Denver, CO 80202-4402
+                        </div>
+                    </bb-tile>
+                </div>
+                <div class="col-md-6 bb-page-content-tile-column">
+                    <bb-tile bb-tile-header="'Latest gift'">
+                        <div bb-tile-section>
+                            <h4>$1.4k</h4>
+                            Given to Building Fund
+                            <br>
+                            10/21/2015
+                        </div>
+                    </bb-tile>
+                </div>
+            </div>
+        </div>
+        <style>
+            .swatch {
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            }
+        </style>
+
+        <div ng-controller="PaletteTestController as paletteCtrl">
+            <h4>Example using getColorByIndex()</h4>
+            <p>Return the 5th color in the mono palette, which would be:</p>
+            <p>
+                <span class="swatch" ng-style="{ 'background-color': paletteCtrl.myColor }"></span>
+                {{ paletteCtrl.myColor }}
+            </p>
+            <script src="colors.js"></script>
+        </div>
+
+    </body>
+</html>
